@@ -7,6 +7,7 @@ O objetivo do projeto é introduzir os alunos ao desenvolvimento de Web services
 ## Tecnologias Utilizadas
 * [JavaSE 17](https://docs.oracle.com/en/java)
 * [Spring Boot 3](https://docs.spring.io/spring-boot/docs/current/reference/html)
+* [Apache Tomcat](https://tomcat.apache.org/tomcat-8.5-doc/index.html)
 * [JPA](https://docs.oracle.com/javaee/6/tutorial/doc/bnbpz.html)
 * [Hibernate](https://hibernate.org/orm/documentation/6.2)
 * [Maven](https://maven.apache.org/what-is-maven.html)
