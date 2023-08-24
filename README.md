@@ -45,16 +45,16 @@ localhost:8080
   [
       {
           "id": 1,
-          "name": "Bob Brown",
-          "email": "bob@gmail.com",
-          "phone": "977557755",
+          "name": "Maria Brown",
+          "email": "maria@gmail.com",
+          "phone": "988888888",
           "password": "123456"
       },
       {
           "id": 2,
-          "name": "Maria Brown",
-          "email": "mariagmail.com",
-          "phone": "977557755",
+          "name": "Alex Green",
+          "email": "alex@gmail.com",
+          "phone": "977777777",
           "password": "123456"
       }
   ]
@@ -64,13 +64,13 @@ localhost:8080
   Get: localhost:8080/users/{id}
   
   Corpo da Resposta:
-      {
-          "id": 1,
-          "name": "Bob Brown",
-          "email": "bob@gmail.com",
-          "phone": "977557755",
-          "password": "123456"
-      }
+    {
+        "id": 1,
+        "name": "Maria Brown",
+        "email": "maria@gmail.com",
+        "phone": "988888888",
+        "password": "123456"
+    }
   ```
   
   - Criar User
@@ -101,6 +101,257 @@ localhost:8080
   - Deletar User
   ```
   Delete: localhost:8080/users/{id}
+  ```
+
+- Category
+  - Listar Categories
+  ```
+  Get: localhost:8080/categories
+  
+  Corpo da Resposta:
+  [
+      {
+          "id": 1,
+          "name": "Electronics"
+      },
+      {
+          "id": 2,
+          "name": "Books"
+      },
+      {
+          "id": 3,
+          "name": "Computers"
+      }
+  ]
+  ```
+  - Listar User por id
+  ```
+  Get: localhost:8080/categories/{id}
+  
+  Corpo da Resposta:
+    {
+        "id": 1,
+        "name": "Electronics"
+    }
+  ```
+
+- Product
+  - Listar Products
+  ```
+  Get: localhost:8080/products
+  
+  Corpo da Resposta:
+  [
+      {
+          "id": 1,
+          "name": "The Lord of the Rings",
+          "description": "Lorem ipsum dolor sit amet, consectetur.",
+          "price": 90.5,
+          "imgUrl": "",
+          "categories": [
+              {
+                  "id": 2,
+                  "name": "Books"
+              }
+          ]
+      },
+      {
+          "id": 2,
+          "name": "Smart TV",
+          "description": "Nulla eu imperdiet purus. Maecenas ante.",
+          "price": 2190.0,
+          "imgUrl": "",
+          "categories": [
+              {
+                  "id": 1,
+                  "name": "Electronics"
+              },
+              {
+                  "id": 3,
+                  "name": "Computers"
+              }
+          ]
+      }
+  ]
+  ```
+  - Listar Product por id
+  ```
+  Get: localhost:8080/products/{id}
+  
+  Corpo da Resposta:
+      {
+          "id": 1,
+          "name": "The Lord of the Rings",
+          "description": "Lorem ipsum dolor sit amet, consectetur.",
+          "price": 90.5,
+          "imgUrl": "",
+          "categories": [
+              {
+                  "id": 2,
+                  "name": "Books"
+              }
+          ]
+      }
+  ```
+
+- Order
+  - Listar Orders
+  ```
+  Get: localhost:8080/orders
+  
+  Corpo da Resposta:
+  [
+      {
+          "id": 1,
+          "moment": "2019-06-20T19:53:07Z",
+          "orderStatus": "PAID",
+          "client": {
+              "id": 1,
+              "name": "Maria Brown",
+              "email": "maria@gmail.com",
+              "phone": "988888888",
+              "password": "123456"
+          },
+          "items": [
+              {
+                  "quantity": 2,
+                  "price": 90.5,
+                  "product": {
+                      "id": 1,
+                      "name": "The Lord of the Rings",
+                      "description": "Lorem ipsum dolor sit amet, consectetur.",
+                      "price": 90.5,
+                      "imgUrl": "",
+                      "categories": [
+                          {
+                              "id": 2,
+                              "name": "Books"
+                          }
+                      ]
+                  },
+                  "subTotal": 181.0
+              },
+              {
+                  "quantity": 1,
+                  "price": 1250.0,
+                  "product": {
+                      "id": 3,
+                      "name": "Macbook Pro",
+                      "description": "Nam eleifend maximus tortor, at mollis.",
+                      "price": 1250.0,
+                      "imgUrl": "",
+                      "categories": [
+                          {
+                              "id": 3,
+                              "name": "Computers"
+                          }
+                      ]
+                  },
+                  "subTotal": 1250.0
+              }
+          ],
+          "payment": {
+              "id": 1,
+              "moment": "2019-06-20T21:53:07Z"
+          },
+          "total": 1431.0
+      },
+      {
+          "id": 2,
+          "moment": "2019-07-21T03:42:10Z",
+          "orderStatus": "WAITING_PAYMENT",
+          "client": {
+              "id": 2,
+              "name": "Alex Green",
+              "email": "alex@gmail.com",
+              "phone": "977777777",
+              "password": "123456"
+          },
+          "items": [
+              {
+                  "quantity": 2,
+                  "price": 1250.0,
+                  "product": {
+                      "id": 3,
+                      "name": "Macbook Pro",
+                      "description": "Nam eleifend maximus tortor, at mollis.",
+                      "price": 1250.0,
+                      "imgUrl": "",
+                      "categories": [
+                          {
+                              "id": 3,
+                              "name": "Computers"
+                          }
+                      ]
+                  },
+                  "subTotal": 2500.0
+              }
+          ],
+          "payment": null,
+          "total": 2500.0
+      }
+  ]
+  ```
+  - Listar Order por id
+  ```
+  Get: localhost:8080/orders/{id}
+  
+  Corpo da Resposta:
+      {
+          "id": 1,
+          "moment": "2019-06-20T19:53:07Z",
+          "orderStatus": "PAID",
+          "client": {
+              "id": 1,
+              "name": "Maria Brown",
+              "email": "maria@gmail.com",
+              "phone": "988888888",
+              "password": "123456"
+          },
+          "items": [
+              {
+                  "quantity": 2,
+                  "price": 90.5,
+                  "product": {
+                      "id": 1,
+                      "name": "The Lord of the Rings",
+                      "description": "Lorem ipsum dolor sit amet, consectetur.",
+                      "price": 90.5,
+                      "imgUrl": "",
+                      "categories": [
+                          {
+                              "id": 2,
+                              "name": "Books"
+                          }
+                      ]
+                  },
+                  "subTotal": 181.0
+              },
+              {
+                  "quantity": 1,
+                  "price": 1250.0,
+                  "product": {
+                      "id": 3,
+                      "name": "Macbook Pro",
+                      "description": "Nam eleifend maximus tortor, at mollis.",
+                      "price": 1250.0,
+                      "imgUrl": "",
+                      "categories": [
+                          {
+                              "id": 3,
+                              "name": "Computers"
+                          }
+                      ]
+                  },
+                  "subTotal": 1250.0
+              }
+          ],
+          "payment": {
+              "id": 1,
+              "moment": "2019-06-20T21:53:07Z"
+          },
+          "total": 1431.0
+      }
   ```
   
 ## Estudante
