@@ -27,7 +27,7 @@ O objetivo do projeto é introduzir os alunos ao desenvolvimento de Web services
 ```
 git clone https://github.com/GabrielGiovanii/workshop-springboot3-jpa.git
 ```
-- Abra o projeto na sua IDE, exemplo:  IntelliJ IDEA ou Eclipse
+- Abra o projeto na sua IDE
 - Execute o projeto, porta local:
 ```
 localhost:8080
